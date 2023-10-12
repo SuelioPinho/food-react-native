@@ -4,13 +4,18 @@ import SearchBar from "../components/SearchBar";
 
 const SearchScreen = () => {
     return (
-        <View>
+        <View style={styles.background}>
             <SearchBar/>
             <Text>SearchScreen</Text>
         </View>
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    background: {
+        backgroundColor: 'white',
+        flex: 1
+    }
+});
 
 export default SearchScreen;
