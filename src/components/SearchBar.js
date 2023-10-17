@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     inputStyle: {
         marginLeft: 10,
         flex: 1,
+        fontFamily: 'Roboto-Regular',
+        fontSize: 16
     },
     iconStyle: {
         fontSize: 35,
