@@ -15,6 +15,12 @@ const SearchScreen = () => {
     'Roboto-Regular': require('../../assets/fonts/Roboto-Regular.ttf'),
   });
 
+  const filteredBussinessesByPrice = (price) => {
+    return businesses.filter((result) => {
+      return result.price === price;
+    });
+  };
+
   return (
     <>
       {!loaded ? null : (
@@ -22,9 +28,9 @@ const SearchScreen = () => {
           <SearchBar term={term} onTermChange={setTerm} onTermSumit={searchApi} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
           <Text>We have found {businesses.length} results</Text>
-          <BusinessesList title="Cost Effective" />
-          <BusinessesList title="Bit Pricier" />
-          <BusinessesList title="Big Spender" />
+          <BusinessesList title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
+          <BusinessesList title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
+          <BusinessesList title="Big Spender" businesses={filteredBussinessesByPrice('$$')} />
         </View>
       )}
     </>
