@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useBusinesses from '../hooks/useBusinesses';
 import BusinessesList from '../components/BusinessesList';
@@ -28,9 +28,11 @@ const SearchScreen = () => {
         <View style={styles.background}>
           <SearchBar term={term} onTermChange={setTerm} onTermSumit={searchApi} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
-          <BusinessesList title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
-          <BusinessesList title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
-          <BusinessesList title="Big Spender" businesses={filteredBussinessesByPrice('$$')} />
+          <ScrollView>
+            <BusinessesList title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
+            <BusinessesList title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
+            <BusinessesList title="Big Spender" businesses={filteredBussinessesByPrice('$$')} />
+          </ScrollView>
         </View>
       )}
     </>
