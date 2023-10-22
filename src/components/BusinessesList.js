@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import BusinessItem from "./BusinessItem";
+import Colors from "../utilites/Color";
+import Fonts from "../utilites/Font";
 
 const BusinessesList = ({ title, businesses }) => {
     return (
@@ -10,6 +12,7 @@ const BusinessesList = ({ title, businesses }) => {
                 horizontal
                 data={businesses}
                 keyExtractor={(result) => result.id}
+                showsHorizontalScrollIndicator={false}
                 renderItem={({ item }) => {
                     return <BusinessItem item={item}/>
                 }}/>
@@ -19,8 +22,12 @@ const BusinessesList = ({ title, businesses }) => {
 
 const styles = StyleSheet.create({
     titleText: {
-        fontFamily: 'Roboto-Medium',
+        fontFamily: Fonts.Bold,
         fontSize: 18,
+        color: Colors.Black,
+        marginLeft: 20,
+        marginTop: 20,
+        marginBottom: 15
     }
 });
 

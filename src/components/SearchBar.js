@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import Colors from "../utilites/Color";
+import Fonts from "../utilites/Font";
 
 const SearchBar = ({ term, onTermChange, onTermSumit }) => {
     return (
@@ -21,7 +23,7 @@ const SearchBar = ({ term, onTermChange, onTermSumit }) => {
 
 const styles = StyleSheet.create({
     backgroundStyle: {
-        backgroundColor: '#F6F6F6',
+        backgroundColor: Colors.Background,
         height: 48,
         borderRadius: 5,
         marginHorizontal: 15,
@@ -32,13 +34,13 @@ const styles = StyleSheet.create({
     inputStyle: {
         marginLeft: 10,
         flex: 1,
-        fontFamily: 'Roboto-Regular',
+        fontFamily: Fonts.Regular,
         fontSize: 16
     },
     iconStyle: {
         fontSize: 35,
         alignSelf: 'center',
-        color: '#64646B',
+        color: Colors.Lable,
         marginLeft: 10,
     }
 });

@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 import useBusinesses from '../hooks/useBusinesses';
 import BusinessesList from '../components/BusinessesList';
 import { useFonts } from 'expo-font';
+import Colors from '../utilites/Color';
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
@@ -27,7 +28,6 @@ const SearchScreen = () => {
         <View style={styles.background}>
           <SearchBar term={term} onTermChange={setTerm} onTermSumit={searchApi} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
-          <Text>We have found {businesses.length} results</Text>
           <BusinessesList title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
           <BusinessesList title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
           <BusinessesList title="Big Spender" businesses={filteredBussinessesByPrice('$$')} />
@@ -39,7 +39,7 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.White,
     flex: 1,
   },
 });
