@@ -14,7 +14,7 @@ export default () => {
           location: 'san jose',
         },
       });
-      console.log(response);
+      console.log(JSON.stringify(response.data.businesses, 0, 4));
       setBusinesses(response.data.businesses);
     } catch (err) {
       console.log(err);
