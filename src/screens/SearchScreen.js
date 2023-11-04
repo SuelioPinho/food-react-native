@@ -6,7 +6,7 @@ import BusinessesList from '../components/BusinessesList';
 import { useFonts } from 'expo-font';
 import Colors from '../utilites/Color';
 
-const SearchScreen = ({navigation}) => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState('');
   const [searchApi, businesses, errorMessage] = useBusinesses();
 
@@ -26,12 +26,12 @@ const SearchScreen = ({navigation}) => {
     <>
       {!loaded ? null : (
         <View style={styles.background}>
-          <SearchBar term={term} onTermChange={setTerm} onTermSumit={searchApi} />
+          <SearchBar term={term} onTermChange={setTerm} onTermSumit={() => searchApi(term)} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
           <ScrollView>
-            <BusinessesList navigation={navigation} title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
-            <BusinessesList navigation={navigation} title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
-            <BusinessesList navigation={navigation} title="Big Spender" businesses={filteredBussinessesByPrice('$$')} />
+            <BusinessesList title="Cost Effective" businesses={filteredBussinessesByPrice('$')} />
+            <BusinessesList title="Bit Pricier" businesses={filteredBussinessesByPrice('$$')} />
+            <BusinessesList title="Big Spender" businesses={filteredBussinessesByPrice('$$$')} />
           </ScrollView>
         </View>
       )}
