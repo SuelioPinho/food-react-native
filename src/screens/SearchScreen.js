@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useBusinesses from '../hooks/useBusinesses';
@@ -21,6 +21,10 @@ const SearchScreen = ({ navigation }) => {
       return result.price === price;
     });
   };
+
+  useLayoutEffect(() => {
+    navigation.setOptions?.({headerShown: false});
+  }, [navigation]);
 
   return (
     <>
