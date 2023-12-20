@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import BusinessItem from './BusinessItem';
-import Colors from '../utilites/Color';
-import Fonts from '../utilites/Font';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import BusinessItem from '../BussinessItem';
 import { withNavigation } from 'react-navigation';
+import { styles } from './styles';
 
 const BusinessesList = ({ navigation, title, businesses }) => {
   return (
@@ -35,16 +34,5 @@ const BusinessesList = ({ navigation, title, businesses }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  titleText: {
-    fontFamily: Fonts.Bold,
-    fontSize: 18,
-    color: Colors.Black,
-    marginLeft: 20,
-    marginTop: 20,
-    marginBottom: 15,
-  },
-});
 
 export default withNavigation(BusinessesList);
