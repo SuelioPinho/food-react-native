@@ -1,23 +1,14 @@
 import React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
+import { styles } from "./styles";
 
 const { Extrapolate, interpolateNode } = Animated;
-const { height: wHeight, width: wWidth } = Dimensions.get("window");
+const { height: wHeight } = Dimensions.get("window");
 
 export const HEADER_IMAGE_HEIGHT = wHeight / 4;
-const styles = StyleSheet.create({
-  image: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: wWidth,
-    resizeMode: "cover",
-  },
-});
 
 export default ({ y, backgroundImage }) => {
-  console.log('backgroundImage', backgroundImage);
   const height = interpolateNode(y, {
     inputRange: [-100, 0],
     outputRange: [HEADER_IMAGE_HEIGHT + 100, HEADER_IMAGE_HEIGHT],

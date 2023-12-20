@@ -2,11 +2,11 @@ import React from 'react';
 import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { onScrollEvent, useValue } from 'react-native-redash';
-import HeaderImage, { HEADER_IMAGE_HEIGHT } from '../components/HeaderImage';
-import useBusinessDetail from '../hooks/useBusinessDetail';
-import Fonts from '../utilites/Font';
-import Colors from '../utilites/Color';
+import HeaderImage from './components/HeaderImage';
+import useBusinessDetail from '../../hooks/useBusinessDetail';
+import Colors from '../../utilites/Color';
 import { SimpleLineIcons, AntDesign, Feather, Ionicons } from '@expo/vector-icons';
+import { styles } from './styles';
 
 const BusinessDetailScreen = ({ navigation }) => {
   const id = navigation.getParam('id');
@@ -67,88 +67,5 @@ const BusinessDetailScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.White,
-  },
-  image: {
-    height: 200,
-    width: 300,
-    borderRadius: 8
-  },
-  backContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 8,
-    backgroundColor: Colors.White,
-    opacity: 0.5,
-    marginLeft: 20,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  body: {
-    marginTop: HEADER_IMAGE_HEIGHT - 10,
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-    backgroundColor: Colors.White,
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    marginHorizontal: 20,
-    marginTop: 20,
-    marginBottom: 5,
-  },
-  title: {
-    fontFamily: Fonts.SemiBold,
-    fontSize: 20,
-    flex: 3,
-  },
-  subtitleContainer: {
-    flexDirection: 'row',
-    marginTop: 6,
-  },
-  subtitle: {
-    fontFamily: Fonts.Regular,
-    fontSize: 12,
-    color: Colors.Lable,
-    marginLeft: 4,
-  },
-  subtitleIcon: {
-    color: Colors.Lable,
-    marginLeft: 20,
-  },
-  star: {
-    color: Colors.Yellow,
-    alignSelf: 'center',
-  },
-  rating: {
-    fontFamily: Fonts.SemiBold,
-    fontSize: 14,
-    color: Colors.Black,
-    alignSelf: 'center',
-    marginLeft: 4,
-    marginTop: 1,
-  },
-  divider: {
-    margin: 20,
-    height: 1,
-    backgroundColor: Colors.Lable,
-    opacity: 0.5
-  },
-  postTitle: {
-    marginStart: 20,
-    fontFamily: Fonts.SemiBold,
-    fontSize: 16,
-  },
-  postsList: {
-    marginTop: 10,
-  },
-  sliderIndicatorItemSeparator: {
-    backgroundColor: Colors.White,
-    width: 12,
-  },
-});
 
 export default BusinessDetailScreen;
