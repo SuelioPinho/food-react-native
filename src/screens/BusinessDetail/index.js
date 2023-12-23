@@ -7,9 +7,11 @@ import useBusinessDetail from '../../hooks/useBusinessDetail';
 import Colors from '../../utilites/Color';
 import { SimpleLineIcons, AntDesign, Feather, Ionicons } from '@expo/vector-icons';
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const BusinessDetailScreen = ({ navigation }) => {
-  const id = navigation.getParam('id');
+const BusinessDetailScreen = ({ route }) => {
+  const navigation = useNavigation();
+  const id = route.params.id;
   const { business } = useBusinessDetail(id);
   const y = useValue(0);
   const onScroll = onScrollEvent({ y });

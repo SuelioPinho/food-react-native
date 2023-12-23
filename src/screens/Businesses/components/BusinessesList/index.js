@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import BusinessItem from '../BussinessItem';
-import { withNavigation } from 'react-navigation';
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const BusinessesList = ({ navigation, title, businesses }) => {
+const BusinessesList = ({ title, businesses }) => {
+  const navigation = useNavigation();
+
   return (
     <>
       {!businesses.length ? null : (
@@ -35,4 +37,4 @@ const BusinessesList = ({ navigation, title, businesses }) => {
   );
 };
 
-export default withNavigation(BusinessesList);
+export default BusinessesList;

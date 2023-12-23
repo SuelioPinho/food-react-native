@@ -1,12 +1,14 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import useBusinesses from '../../hooks/useBusinesses';
 import { useFonts } from 'expo-font';
 import { styles } from './styles';
 import SearchBar from '../../components/SearchBar';
 import BusinessesList from './components/BusinessesList';
+import { useNavigation } from '@react-navigation/native';
 
-const BusinessScreen = ({ navigation }) => {
+const BusinessScreen = () => {
+  const navigation = useNavigation();
   const [term, setTerm] = useState('');
   const [searchApi, businesses, errorMessage] = useBusinesses();
 
@@ -22,14 +24,10 @@ const BusinessScreen = ({ navigation }) => {
     });
   };
 
-  useLayoutEffect(() => {
-    navigation.setOptions?.({headerShown: false});
-  }, [navigation]);
-
   return (
     <>
       {!loaded ? null : (
-        <View style={styles.background}>
+        <View style={styles.background} >
           <SearchBar term={term} onTermChange={setTerm} onTermSumit={() => searchApi(term)} />
           {errorMessage ? <Text>{errorMessage}</Text> : null}
           <ScrollView>
